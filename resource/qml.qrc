@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Global.qml</file>
+        <file>qml.qrc</file>
+        <file>qmldir</file>
+        <file>view/MainWin.qml</file>
+        <file>view/MainWinForm.ui.qml</file>
+        <file>main.qml</file>
+        <file>view/ConfigurationWin.qml</file>
+        <file>view/ConfigurationWinForm.ui.qml</file>
+    </qresource>
+</RCC>
