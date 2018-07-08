@@ -2,7 +2,14 @@ QT += qml quick
 
 CONFIG += c++11
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    src/basemodel.cpp \
+    src/model/configurationnetworkmodel.cpp \
+    src/model/basemodel.cpp \
+    src/cglobal.cpp \
+    src/model/modelmanager.cpp \
+    src/modelmanager.cpp \
+    src/main.cpp
 
 RESOURCES += \
     resource/qml.qrc
@@ -15,3 +22,11 @@ include(deployment.pri)
 
 DISTFILES += \
     qmldir
+
+HEADERS += \
+    src/basemodel.h \
+    src/model/configurationnetworkmodel.h \
+    src/model/basemodel.h \
+    src/cglobal.h \
+    src/model/modelmanager.h \
+    src/modelmanager.h

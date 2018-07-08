@@ -7,6 +7,11 @@ Item {
     id: item1
     width: 1280
     height: 800
+    property alias textFieldGateWay: textFieldGateWay
+    property alias textFieldNetMask: textFieldNetMask
+    property alias textFieldIPAddr: textFieldIPAddr
+    property alias comboBoxDHCP: comboBoxDHCP
+    property alias textMacAddr: textMacAddr
     property alias button1: button1
 
     Button {
@@ -51,8 +56,8 @@ Item {
             }
 
             Text {
-                id: text3
-                x: 199
+                id: textMacAddr
+                x: 209
                 y: 53
                 width: 108
                 height: 28
@@ -84,8 +89,8 @@ Item {
             }
 
             ComboBox {
-                id: comboBox1
-                x: 202
+                id: comboBoxDHCP
+                x: 210
                 y: 47
                 model: ["DHCP", "手动获取"]
             }
@@ -134,218 +139,29 @@ Item {
                 horizontalAlignment: Text.AlignHCenter
             }
 
-            Text {
-                id: text7
-                x: 255
-                y: 24
-                width: 8
-                height: 28
-                text: qsTr(".")
-                font.pixelSize: 12
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
             TextField {
-                id: textField1
+                id: textFieldIPAddr
                 x: 207
                 y: 24
-                width: 48
+                width: 155
                 height: 28
                 text: qsTr("")
             }
 
             TextField {
-                id: textField2
-                x: 261
-                y: 24
-                width: 48
-                height: 28
-                text: qsTr("")
-            }
-
-            Text {
-                id: text10
-                x: 309
-                y: 24
-                width: 8
-                height: 28
-                text: qsTr(".")
-                font.pixelSize: 12
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                id: text11
-                x: 364
-                y: 24
-                width: 8
-                height: 28
-                text: qsTr(".")
-                font.pixelSize: 12
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            TextField {
-                id: textField3
-                x: 317
-                y: 24
-                width: 48
-                height: 28
-                text: qsTr("")
-            }
-
-            TextField {
-                id: textField4
-                x: 372
-                y: 24
-                width: 48
-                height: 28
-                text: qsTr("")
-            }
-
-            TextField {
-                id: textField5
+                id: textFieldNetMask
                 x: 207
                 y: 79
-                width: 48
-                height: 28
-                text: qsTr("")
-            }
-
-            Text {
-                id: text12
-                x: 255
-                y: 79
-                width: 8
-                height: 28
-                text: qsTr(".")
-                font.pixelSize: 12
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            TextField {
-                id: textField6
-                x: 261
-                y: 79
-                width: 48
-                height: 28
-                text: qsTr("")
-            }
-
-            Text {
-                id: text13
-                x: 309
-                y: 79
-                width: 8
-                height: 28
-                text: qsTr(".")
-                font.pixelSize: 12
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                id: text14
-                x: 364
-                y: 79
-                width: 8
-                height: 28
-                text: qsTr(".")
-                font.pixelSize: 12
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            TextField {
-                id: textField7
-                x: 317
-                y: 79
-                width: 48
+                width: 155
                 height: 28
                 text: qsTr("")
             }
 
             TextField {
-                id: textField8
-                x: 372
-                y: 79
-                width: 48
-                height: 28
-                text: qsTr("")
-            }
-
-            TextField {
-                id: textField9
+                id: textFieldGateWay
                 x: 207
                 y: 126
-                width: 48
-                height: 28
-                text: qsTr("")
-            }
-
-            Text {
-                id: text15
-                x: 255
-                y: 126
-                width: 8
-                height: 28
-                text: qsTr(".")
-                font.pixelSize: 12
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            TextField {
-                id: textField10
-                x: 261
-                y: 126
-                width: 48
-                height: 28
-                text: qsTr("")
-            }
-
-            Text {
-                id: text16
-                x: 309
-                y: 126
-                width: 8
-                height: 28
-                text: qsTr(".")
-                font.pixelSize: 12
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            Text {
-                id: text17
-                x: 364
-                y: 126
-                width: 8
-                height: 28
-                text: qsTr(".")
-                font.pixelSize: 12
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            TextField {
-                id: textField11
-                x: 317
-                y: 126
-                width: 48
-                height: 28
-                text: qsTr("")
-            }
-
-            TextField {
-                id: textField12
-                x: 372
-                y: 126
-                width: 48
+                width: 155
                 height: 28
                 text: qsTr("")
             }
