@@ -61,7 +61,6 @@ Item {
                 y: 53
                 width: 108
                 height: 28
-                text: qsTr("AA-AA-AA-AA-AA-AA")
                 font.pixelSize: 12
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter

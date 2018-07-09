@@ -7,13 +7,17 @@ ModelManager::ModelManager(QObject *parent) : QObject(parent)
 
 void ModelManager::init()
 {
-    registerModelClass<ConfigurationNetworkModel>("ConfigurationNetworkModel");
+    registerModelClass<ConfigurationNetworkModel>();
 }
-void ModelManager::registerModelClass<T>()
+
+
+template<typename T>
+void ModelManager::registerModelClass()
 {
     modelInfos[T::getInstance()->metaObject()->className()] = &T::getInstance;
 }
+
 BaseModel* ModelManager::getModel(const QString& modelName)
 {
-    return modelName[modelName]();
+    return modelInfos[modelName]();
 }
