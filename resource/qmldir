@@ -1,2 +1,3 @@
 singleton Global Global.qml
-
+singleton Locator Locator.qml
+singleton Tool Tool.qml

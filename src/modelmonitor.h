@@ -13,13 +13,7 @@ class ModelMonitor : public QThread
     Q_OBJECT
     ModelMonitor();
 public:
-    static ModelMonitor* getInstance()
-    {
-        static ModelMonitor* __instance = NULL;
-        if(__instance == NULL)
-            __instance = new ModelMonitor;
-        return __instance;
-    }
+    static ModelMonitor* getInstance();
     //注册待监控模型数据对象
     void registerModel( BaseModel* model);
     void run();

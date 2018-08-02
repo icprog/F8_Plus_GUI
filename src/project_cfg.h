@@ -1,0 +1,6 @@
+#ifndef PROJECT_CFG_H
+#define PROJECT_CFG_H
+
+#define DEBUG_WITHOUT_MIDDLEWARE
+
+#endif // PROJECT_CFG_H

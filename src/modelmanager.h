@@ -27,20 +27,10 @@ public:
     void init();
 
     //根据模型类名获取具体模型对象，使用Q_INVOKABLE宏将该函数声明到qml空间
-    Q_INVOKABLE BaseModel* getModel(const QString& modelName);
+    Q_INVOKABLE QObject* getModel(const QString& modelName);
 
-    static ModelManager* getInstance()
-    {
-        static  ModelManager* __instance = NULL;
-        if(__instance == NULL)
-            __instance = new ModelManager;
-        return __instance;
-    }
+    static ModelManager* getInstance();
 
-
-signals:
-
-public slots:
 };
 
 #endif // MODELMANAGER_H

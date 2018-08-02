@@ -20,8 +20,10 @@ class ConfigurationNetworkModel : public BaseModel
     Q_PROPERTY(const QString& netMask READ netMask WRITE setMacAddr NOTIFY netMaskChanged)//子网掩码
     Q_PROPERTY(const QString& gateWay READ gateWay WRITE setMacAddr NOTIFY gateWayChanged)//网关
     explicit ConfigurationNetworkModel(QObject *parent = 0);
-    QJsonObject readLowLevel();
-    int writeLowLevel(const QJsonObject& json);
+#ifndef DEBUG_WITHOUT_MIDDLEWARE
+    QJsonObject readLowLevel();                 //具体的业务底层读接口
+    int writeLowLevel(const QJsonObject& json); //具体的业务底层写接口
+#endif//DEBUG_WITHOUT_MIDDLEWARE
 public:
     DECLARE_GET_INSTANCE(ConfigurationNetworkModel)
 
@@ -44,7 +46,6 @@ signals:
     void ipAddrChanged();
     void netMaskChanged();
     void gateWayChanged();
-public slots:
 
 };
 

@@ -16,3 +16,10 @@ void ModelMonitor::loadModel( )
 {
     dynamic_cast<BaseModel*>( sender())->load();
 }
+ ModelMonitor* ModelMonitor::getInstance()
+{
+    static ModelMonitor* __instance = NULL;
+    if(__instance == NULL)
+        __instance = new ModelMonitor;
+    return __instance;
+}

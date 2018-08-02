@@ -1,8 +1,6 @@
 #include "configurationnetworkmodel.h"
 #include <QDebug>
-#include <QFile>
-#include <QJsonDocument>
-#include <QDir>
+
 ConfigurationNetworkModel::ConfigurationNetworkModel(QObject *parent) : BaseModel(parent)
 {
     connect(this,SIGNAL(dataChanged()),this,SIGNAL(macAddrChanged()));
@@ -10,7 +8,9 @@ ConfigurationNetworkModel::ConfigurationNetworkModel(QObject *parent) : BaseMode
     connect(this,SIGNAL(dataChanged()),this,SIGNAL(ipAddrChanged()));
     connect(this,SIGNAL(dataChanged()),this,SIGNAL(netMaskChanged()));
     connect(this,SIGNAL(dataChanged()),this,SIGNAL(gateWayChanged()));
-    qDebug()<<QDir::currentPath();
+#ifdef DEBUG_WITHOUT_MIDDLEWARE
+    setFileName("NetWork.json");
+#endif
 }
 
 QString ConfigurationNetworkModel::macAddr()
@@ -56,6 +56,8 @@ void ConfigurationNetworkModel::setGateWay(const QString& gateWay)
 }
 
 
+
+#ifndef DEBUG_WITHOUT_MIDDLEWARE
 QJsonObject ConfigurationNetworkModel::readLowLevel()
 {
     QFile f( "./NetWork.json");
@@ -83,3 +85,4 @@ int ConfigurationNetworkModel::writeLowLevel(const QJsonObject& json)
      f.close();
      return 0;
 }
+#endif//DEBUG_WITHOUT_MIDDLEWARE
