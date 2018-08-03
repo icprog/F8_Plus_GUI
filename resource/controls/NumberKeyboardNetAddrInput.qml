@@ -9,6 +9,6 @@ NumberKeyboardNetAddrInputForm {
         addr = tmp
     }
     mouseArea.onClicked: {
-        Locator.showFloating(Global.getFloatingWin("NumberKeyboardNetAddrPanel"),this)
+        Locator.showFloating("NumberKeyboardNetAddrPanel",this)
     }
 }

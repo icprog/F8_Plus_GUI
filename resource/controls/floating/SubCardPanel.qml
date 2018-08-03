@@ -16,11 +16,7 @@ SubCardPanelForm {
     property int _easing: Easing.OutInBounce
     Component.onCompleted:
     {
-        var tmp = []
-        tmp[0] = transitions[2]
-        tmp[1] = transitions[3]
-        transitions = tmp
-        console.log(transitions.length)
+        transitions = [transitions[2],transitions[3]]
         imageX= image.x
         imageY = image.y
         imageW=image.width

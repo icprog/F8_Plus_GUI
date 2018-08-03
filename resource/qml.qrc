@@ -41,8 +41,6 @@
         <file>view/ConfigureNetSubWinForm.ui.qml</file>
         <file>image/config_page/down_arrow.png</file>
         <file>image/common/icon_close.png</file>
-        <file>view/TransparentWin.qml</file>
-        <file>view/TransparentWinForm.ui.qml</file>
         <file>Locator.qml</file>
         <file>image/number_keyboard/icon_backspace.png</file>
         <file>controls/XButton.qml</file>
@@ -63,8 +61,6 @@
         <file>image/device_page/icon_volt.png</file>
         <file>image/device_page/icon_warning.png</file>
         <file>image/device_page/sub_card_bg.png</file>
-        <file>view/TestVIew.qml</file>
-        <file>view/TestVIewForm.ui.qml</file>
         <file>controls/floating/CustomizingComboBoxPanel.qml</file>
         <file>controls/floating/base/BaseFloatingPanel.qml</file>
         <file>controls/impl/ConfigureSubButtonForm.ui.qml</file>
@@ -85,5 +81,9 @@
         <file>controls/impl/NumberKeyboardForm.ui.qml</file>
         <file>controls/floating/SubCardPanel.qml</file>
         <file>controls/floating/impl/SubCardPanelForm.ui.qml</file>
+        <file>view/SenceWin.qml</file>
+        <file>image/sence_page/icon_sence.png</file>
+        <file>image/sence_page/t-bar.png</file>
+        <file>view/impl/SenceWinForm.ui.qml</file>
     </qresource>
 </RCC>

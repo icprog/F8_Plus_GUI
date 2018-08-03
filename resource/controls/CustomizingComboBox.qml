@@ -10,7 +10,7 @@ CustomizingComboBoxForm {
     displayString.text:delegate != null ? delegate(models.get(currentIndex)) : models[currentIndex]
 
     mouseArea.onClicked: {
-        Locator.showFloating(Global.getFloatingWin("CustomizingComboBoxPanel"),this)
+        Locator.showFloating("CustomizingComboBoxPanel",this)
     }
 
 }

@@ -12,7 +12,7 @@ Item {
             console.log("floating panel : "+this+" is not set name property.")
             return
         }
-        Global.addFloatWin(this,name)
+        Locator.addFloatWin(this,name)
     }
     states: [
         State {

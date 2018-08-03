@@ -15,13 +15,13 @@ MainWinForm {
 
 
     btnSetting.onClicked: { //进入设置界面
-        Locator.showWin(Global.getWin("ConfigurationWin"))
+        Locator.showWin("ConfigurationWin")
     }
     btnLanguage.onClicked: {    //进入语言界面
-        Locator.showWin(Global.getLanguageWin())
+        Locator.showWin("LanguageWin")
 
     }
     btnDevice.onClicked: {    //进入设备界面
-        Locator.showWin(Global.getDeviceInfoWin())
+        Locator.showWin("DeviceInfoWin")
     }
 }

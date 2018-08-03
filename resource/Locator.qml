@@ -2,14 +2,19 @@ pragma Singleton
 import QtQuick 2.0
 import "./"
 Item {
+    property var mainStackView: null    //界面栈，压入到栈顶的界面为当前界面
+    property var floatingContainer : null
 
-    property var lock: Utility.createMutext()
-
-    function showFloating(win,context)
+    function getFloatingWin(floatingWinName)
     {
+        return _getFloatingWin(floatingWinName)
+    }
+    function showFloating(floatingWinName,context)
+    {
+        var win = _getFloatingWin(floatingWinName)
         if(!win)
         {
-            console.log("not found floating win.")
+            console.error("not found floating win: "+floatingWinName+".")
             return
         }
         if(win.visible && win.context === context)
@@ -21,13 +26,18 @@ Item {
             win.preShow(context)
         win.show()
     }
-    function hideFloating(win)
+    function hideFloating(floatingWinName)
     {
+        var win = null
+        if(typeof floatingWinName === String)
+            win = _getFloatingWin(floatingWinName)
+        else
+            win = floatingWinName
         if(!win)
         {
-            for (var i=0;i<Global.floatingContainer.children.length;i++)
+            for (var i=0;i<floatingContainer.children.length;i++)
             {
-                Global.floatingContainer.children[i].hide()
+                floatingContainer.children[i].hide()
             }
         }
         else
@@ -38,98 +48,68 @@ Item {
         }
 
     }
-    function showFloating1(win,context)  //悬浮显示win界面，并传入context上下文对象
+
+    function showWin(winName)   //常规界面跳转
     {
-        if(Utility.tryLock(lock) === false)
-        {
-//            console.log("show not lock")
-            return
-        }
-        else
-        {
-//            console.log("show get lock")
-        }
-
-
-//        console.log("raw dep="+topStackView.depth)
-        while(Global.topStackView.depth > 1)
-        {
-//            if(win.isCurrent(context) )
-//            {
-//                Utility.unLock(lock)
-//                return;
-//            }
-            hideFloating(true)
-        }
-        if(win.preShow)
-            win.preShow(context);
-        Global.topStackView.push(win)
-        do
-        {
-            x++
-            Utility.msleep(50)
-        }while(win.visible === false)
-        //Utility.msleep(300)
-        Utility.unLock(lock)
-//        console.log("show unlock")
-    }
-    //尽在showFloating中置withoutLock = true
-    function hideFloating1(withoutLock) //悬浮界面隐藏
-    {
-        if(withoutLock !== true)
-        {
-            if(Utility.tryLock(lock) === false)
-            {
-//                console.log("hide not lock")
-                return
-            }
-            else
-            {
-//                console.log("hide get lock")
-            }
-
-        }
-
-
-        var totleTime = 500
-        var takeTime = 0
-        var unitTime = 50
-        var item = Global.topStackView.currentItem
-        if(Global.topStackView.currentItem.preHide )
-            Global.topStackView.currentItem.preHide()
-        Global.topStackView.pop()
-        do
-        {
-            Utility.msleep(unitTime)
-            takeTime += unitTime
-        }while(item.visible === true)
-        if(takeTime < 2*unitTime)
-            Utility.msleep(totleTime - takeTime)
-        if(withoutLock !== true)
-        {
-//            console.log("hide unlock")
-            Utility.unLock(lock)
-        }
-
-    }
-    function showWin(win)   //常规界面跳转
-    {
+        var win = _getWin(winName)
         if(win.preShow )
             win.preShow()
-        Global.mainStackView.push(win)
+        mainStackView.push(win)
     }
 
-    function hideWin()      //常规界面隐藏
+    function hideWin(winName)      //常规界面隐藏
     {
-//        while(Global.topStackView.depth > 1)
-//        {
-
-//            hideFloating()
-//        }
+        var win = null
+        if(typeof floatingWinName === String)
+            win = _getWin(winName)
+        else
+            win = winName
         hideFloating()
-        if(Global.mainStackView.currentItem.preShow )
-            Global.mainStackView.currentItem.preShow()
-        Global.mainStackView.pop()
+        if(mainStackView.currentItem.preShow )
+            mainStackView.currentItem.preShow()
+        mainStackView.pop()
+    }
+
+    function addFloatWin(floatingWin,name)
+    {
+        var map = _getMap()
+        map[name] = floatingWin
+    }
+
+
+
+
+    /****************************private**************************/
+
+    property var _map: null
+
+
+    function _getWin(winName)
+    {
+        var map = _getMap()
+        if(!map.hasOwnProperty(winName))
+        {
+            map[winName] = Qt.createComponent("view/"+winName+".qml").createObject();
+        }
+        return map[winName]
+    }
+    function _getFloatingWin(floatingWinName)
+    {
+        var map = _getMap()
+        if(!map.hasOwnProperty(floatingWinName))
+        {
+            return null
+        }
+
+        return map[floatingWinName]
+
+    }
+
+    function _getMap()
+    {
+        if(_map === null)
+            _map = {}
+        return _map
     }
 
 }
