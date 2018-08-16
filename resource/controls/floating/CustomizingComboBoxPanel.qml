@@ -50,7 +50,8 @@ CustomizingComboBoxPanelForm {
             id: delegateText
             color: parent.ListView.isCurrentItem ? "white" : "#00fadd"
             height: 31
-            text:comboBox.delegate ? comboBox.delegate(comboBox.models.get(index)) : comboBox.models[index]
+            text:comboBox.delegate ? comboBox.delegate(model.modelData) : comboBox.models[index]
+            //text:index
             font.pixelSize: 30
             anchors.verticalCenter: parent.verticalCenter
         }

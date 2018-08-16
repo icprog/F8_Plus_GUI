@@ -5,10 +5,16 @@ Item {
     property var mainStackView: null    //界面栈，压入到栈顶的界面为当前界面
     property var floatingContainer : null
 
+    function lockScreen()
+    {
+        while(mainStackView.depth > 1)
+            hideWin()
+    }
     function getFloatingWin(floatingWinName)
     {
         return _getFloatingWin(floatingWinName)
     }
+
     function showFloating(floatingWinName,context)
     {
         var win = _getFloatingWin(floatingWinName)
@@ -29,7 +35,8 @@ Item {
     function hideFloating(floatingWinName)
     {
         var win = null
-        if(typeof floatingWinName === String)
+
+        if(typeof floatingWinName === "string")
             win = _getFloatingWin(floatingWinName)
         else
             win = floatingWinName
@@ -51,6 +58,7 @@ Item {
 
     function showWin(winName)   //常规界面跳转
     {
+        gc()
         var win = _getWin(winName)
         if(win.preShow )
             win.preShow()
@@ -60,7 +68,7 @@ Item {
     function hideWin(winName)      //常规界面隐藏
     {
         var win = null
-        if(typeof floatingWinName === String)
+        if(typeof winName === "string")
             win = _getWin(winName)
         else
             win = winName

@@ -1,0 +1,23 @@
+
+    {
+        "deviceId":0,
+        "ip":{
+            "ip0":192,
+            "ip1":168,
+            "ip2":0,
+            "ip3":10
+        },
+        "subnetMask":{
+            "subnetMask0":255,
+            "subnetMask1":255,
+            "subnetMask2":255,
+            "subnetMask3":0
+        },
+        "gateway":{
+            "gateway0":192,
+            "gateway1":168,
+            "gateway2":0,
+            "gateway3":1
+        }
+    }
+

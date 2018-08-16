@@ -18,7 +18,7 @@ ApplicationWindow {
     StackView {
         id: mainStackView
         anchors.fill: parent
-        initialItem: MainWin{}
+        initialItem: LockWin{}
         Component.onCompleted: {
             Locator.mainStackView = this
         }
@@ -31,8 +31,11 @@ ApplicationWindow {
             Locator.floatingContainer = this
         }
         CustomizingComboBoxPanel{}
-        NumberKeyboardNetAddrPanel{}
+        NetAddrPanel{}
+        NumberInputPanel{}
         SubCardPanel{ }
+        ShutdownQueryPanel{}
     }
+    //ConfigurationWin{}
 }
 

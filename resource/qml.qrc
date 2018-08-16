@@ -1,13 +1,10 @@
 <RCC>
     <qresource prefix="/">
-        <file>Global.qml</file>
         <file>qml.qrc</file>
         <file>qmldir</file>
         <file>view/MainWin.qml</file>
-        <file>view/MainWinForm.ui.qml</file>
         <file>main.qml</file>
         <file>view/ConfigurationWin.qml</file>
-        <file>view/ConfigurationWinForm.ui.qml</file>
         <file>controls/TitleButton.qml</file>
         <file>image/main_page/device.png</file>
         <file>image/main_page/sence.png</file>
@@ -17,13 +14,9 @@
         <file>image/main_page/about.png</file>
         <file>image/main_page/logo.png</file>
         <file>image/main_page/power_off.png</file>
-        <file>image/main_page/lock.png</file>
         <file>image/main_page/icon_dev_name.png</file>
         <file>image/main_page/icon_ip.png</file>
-        <file>test-json/NetWork.json</file>
-        <file>test-json/DevInfo.json</file>
         <file>view/LanguageWin.qml</file>
-        <file>view/LanguageWinForm.ui.qml</file>
         <file>controls/ReturnButton.qml</file>
         <file>image/common/background.png</file>
         <file>image/common/icon_back.png</file>
@@ -38,7 +31,6 @@
         <file>image/config_page/icon_net_normal.png</file>
         <file>image/config_page/icon_net_pressed.png</file>
         <file>view/ConfigureNetSubWin.qml</file>
-        <file>view/ConfigureNetSubWinForm.ui.qml</file>
         <file>image/config_page/down_arrow.png</file>
         <file>image/common/icon_close.png</file>
         <file>Locator.qml</file>
@@ -48,11 +40,8 @@
         <file>Tool.qml</file>
         <file>controls/CustomizingTimer.qml</file>
         <file>view/ConfigureFirewareVersionSubWin.qml</file>
-        <file>view/ConfigureFirewareVersionSubWinForm.ui.qml</file>
         <file>view/ConfigureAdvanceWin.qml</file>
-        <file>view/ConfigureAdvanceWinForm.ui.qml</file>
         <file>view/DeviceInfoWin.qml</file>
-        <file>view/DeviceInfoWinForm.ui.qml</file>
         <file>image/device_page/icon_lookup_normal.png</file>
         <file>image/device_page/icon_lookup_pressed.png</file>
         <file>image/device_page/icon_temp_warning.png</file>
@@ -70,11 +59,7 @@
         <file>controls/impl/ToggleButtonForm.ui.qml</file>
         <file>controls/impl/XButtonForm.ui.qml</file>
         <file>controls/CustomizingComboBox.qml</file>
-        <file>controls/impl/NumberKeyboardNetAddrInputForm.ui.qml</file>
-        <file>controls/floating/NumberKeyboardNetAddrPanel.qml</file>
-        <file>controls/floating/impl/NumberKeyboardNetAddrPanelForm.ui.qml</file>
         <file>controls/floating/impl/CustomizingComboBoxPanelForm.ui.qml</file>
-        <file>controls/NumberKeyboardNetAddrInput.qml</file>
         <file>controls/floating/impl/NumberKeyboardDigitalPanelForm.ui.qml</file>
         <file>controls/floating/impl/NumberKeyboardDigitalPanel.qml</file>
         <file>controls/NumberKeyboard.qml</file>
@@ -85,5 +70,61 @@
         <file>image/sence_page/icon_sence.png</file>
         <file>image/sence_page/t-bar.png</file>
         <file>view/impl/SenceWinForm.ui.qml</file>
+        <file>view/impl/MainWinForm.ui.qml</file>
+        <file>view/impl/LanguageWinForm.ui.qml</file>
+        <file>view/impl/DeviceInfoWinForm.ui.qml</file>
+        <file>view/impl/ConfigureNetSubWinForm.ui.qml</file>
+        <file>view/impl/ConfigureFirewareVersionSubWinForm.ui.qml</file>
+        <file>view/impl/ConfigureAdvanceWinForm.ui.qml</file>
+        <file>view/impl/ConfigurationWinForm.ui.qml</file>
+        <file>controls/HollowButton.qml</file>
+        <file>image/sence_page/t-bar_bg.png</file>
+        <file>view/base/BaseView.qml</file>
+        <file>controls/DevNameLabel.qml</file>
+        <file>controls/impl/HollowButtonForm.ui.qml</file>
+        <file>controls/impl/DevNameLabelForm.ui.qml</file>
+        <file>view/impl/MVRWinForm.ui.qml</file>
+        <file>view/MVRWin.qml</file>
+        <file>image/mvr_page/invalid.png</file>
+        <file>view/AboutWin.qml</file>
+        <file>view/impl/AboutWinForm.ui.qml</file>
+        <file>image/about_page/qr_code.png</file>
+        <file>controls/NumberInput.qml</file>
+        <file>controls/impl/NumberInputForm.ui.qml</file>
+        <file>controls/impl/NetAddrInputForm.ui.qml</file>
+        <file>controls/NetAddrInput.qml</file>
+        <file>controls/floating/impl/NetAddrPanelForm.ui.qml</file>
+        <file>controls/floating/NetAddrPanel.qml</file>
+        <file>controls/floating/NumberInputPanel.qml</file>
+        <file>controls/floating/impl/NumberInputPanelForm.ui.qml</file>
+        <file>image/lock_page/icon_up.png</file>
+        <file>image/lock_page/icon_lock.png</file>
+        <file>image/common/lock.png</file>
+        <file>view/UnLockWin.qml</file>
+        <file>view/impl/UnLockWinForm.ui.qml</file>
+        <file>image/unlock_page/icon_warning.png</file>
+        <file>controls/floating/ShutdownQueryPanel.qml</file>
+        <file>controls/floating/impl/ShutdownQueryPanelForm.ui.qml</file>
+        <file>image/shutdown_page/icon_shutdown.png</file>
+        <file>view/impl/LockWinForm.ui.qml</file>
+        <file>view/LockWin.qml</file>
+        <file>ModelSet.qml</file>
+        <file>test-json/Language.json</file>
+        <file>test-json/DeviceGeneral.json</file>
+        <file>test-json/DeviceIp.json</file>
+        <file>test-json/DeviceRestoreFactory.json</file>
+        <file>test-json/DeviceFirwareVersion.json</file>
+        <file>image/device_page/DP1.png</file>
+        <file>image/device_page/DP2.png</file>
+        <file>image/device_page/DVI1.png</file>
+        <file>image/device_page/DVI2.png</file>
+        <file>test-json/DeviceDetail.json</file>
+        <file>controls/InterfaceListView.qml</file>
+        <file>test-json/MVREnable.json</file>
+        <file>test-json/DeviceGenlock.json</file>
+        <file>view/SenceSubListWin.qml</file>
+        <file>image/sence_page/sence_bg.png</file>
+        <file>view/impl/SenceSubListWinForm.ui.qml</file>
+        <file>test-json/Presets.json</file>
     </qresource>
 </RCC>

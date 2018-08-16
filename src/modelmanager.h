@@ -15,7 +15,8 @@ class ModelManager : public QObject
     Q_OBJECT
     ModelManager* __instance = NULL;
     //存储具体模型对象的内部私有的结构
-    QHash<const QString,BaseModel* (*)()> modelInfos;
+    //QHash<const QString,BaseModel* (*)()> modelInfos;
+    QHash<const QString,BaseModel* > modelInfos;
     explicit ModelManager(QObject *parent = 0);
 
     //注册模型对象，模板参数T应为具体数据模型类名

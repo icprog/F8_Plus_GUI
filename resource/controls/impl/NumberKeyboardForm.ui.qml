@@ -5,6 +5,7 @@ Item {
     id: item1
     width: 517
     height: 480
+    property alias text1: text1
     property bool enterVisible: true
 
     property alias mouseArea12: mouseArea12
@@ -21,12 +22,11 @@ Item {
     property alias mouseArea1: mouseArea1
     property alias mouseArea: mouseArea
 
-
     Rectangle {
         id: rectangle
         width: 129
         height: 120
-        color: mouseArea.pressed ? "#213963" :"#131d4d"
+        color: mouseArea.pressed ? "#213963" : "#131d4d"
         border.color: "#2a436e"
         anchors.left: parent.left
         anchors.leftMargin: 0
@@ -56,7 +56,7 @@ Item {
         id: rectangle1
         width: 129
         height: 120
-        color: mouseArea1.pressed ? "#213963" :"#131d4d"
+        color: mouseArea1.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.left: rectangle.right
         anchors.leftMargin: 0
@@ -92,7 +92,7 @@ Item {
         y: 0
         width: 129
         height: 120
-        color: mouseArea2.pressed ? "#213963" :"#131d4d"
+        color: mouseArea2.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.leftMargin: 0
         anchors.topMargin: 0
@@ -126,7 +126,7 @@ Item {
         y: 0
         width: 129
         height: 120
-        color: mouseArea3.pressed ? "#213963" :"#131d4d"
+        color: mouseArea3.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.leftMargin: 0
         anchors.topMargin: 0
@@ -160,7 +160,7 @@ Item {
         y: 2
         width: 129
         height: 120
-        color: mouseArea4.pressed ? "#213963" :"#131d4d"
+        color: mouseArea4.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.leftMargin: 0
         anchors.topMargin: 0
@@ -194,7 +194,7 @@ Item {
         y: 2
         width: 129
         height: 120
-        color: mouseArea5.pressed ? "#213963" :"#131d4d"
+        color: mouseArea5.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.leftMargin: 0
         anchors.topMargin: 0
@@ -228,7 +228,7 @@ Item {
         y: 1
         width: 129
         height: 120
-        color:mouseArea6.pressed ? "#213963" :"#131d4d"
+        color: mouseArea6.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.leftMargin: 0
         anchors.topMargin: 0
@@ -262,7 +262,7 @@ Item {
         y: -5
         width: 129
         height: 120
-        color: mouseArea7.pressed ? "#213963" :"#131d4d"
+        color: mouseArea7.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.leftMargin: 0
         anchors.topMargin: 0
@@ -296,7 +296,7 @@ Item {
         y: 6
         width: 129
         height: 120
-        color: mouseArea8.pressed ? "#213963" :"#131d4d"
+        color: mouseArea8.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.leftMargin: 0
         anchors.topMargin: 0
@@ -330,7 +330,7 @@ Item {
         y: 6
         width: 129
         height: 120
-        color: mouseArea9.pressed ? "#213963" :"#131d4d"
+        color: mouseArea9.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.leftMargin: 0
         anchors.topMargin: 0
@@ -364,7 +364,7 @@ Item {
         y: 5
         width: 129
         height: 120
-        color: mouseArea10.pressed ? "#213963" :"#131d4d"
+        color: mouseArea10.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.leftMargin: 0
         anchors.topMargin: 0
@@ -398,7 +398,7 @@ Item {
         y: 0
         width: 129
         height: 120
-        color: mouseArea11.pressed ? "#213963" :"#131d4d"
+        color: mouseArea11.pressed ? "#213963" : "#131d4d"
         border.color: rectangle.border.color
         anchors.leftMargin: 0
         anchors.topMargin: 0
@@ -427,7 +427,7 @@ Item {
         x: -2
         y: 6
         height: 120
-        color: mouseArea12.pressed ? "#213963" :"#131d4d"
+        color: mouseArea12.pressed ? "#213963" : "#131d4d"
         visible: enterVisible
         border.color: rectangle.border.color
         anchors.right: parent.right

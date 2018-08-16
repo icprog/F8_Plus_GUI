@@ -4,6 +4,7 @@ NumberKeyboardForm {
     signal key(string value)
     implicitWidth:517
     implicitHeight:480
+    text1.text : TranslatorHelper.translator.tr(qsTr("完成"))
     mouseArea.onClicked: key("1")
     mouseArea1.onClicked: key("2")
     mouseArea2.onClicked: key("3")

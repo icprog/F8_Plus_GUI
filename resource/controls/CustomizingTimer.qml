@@ -14,4 +14,8 @@ Item {
         timer.restart()
 
     }
+    function stop()
+    {
+        timer.stop()
+    }
 }

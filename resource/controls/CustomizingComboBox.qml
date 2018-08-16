@@ -7,7 +7,8 @@ CustomizingComboBoxForm {
     property var models: ["关闭", "开启"]
     property var delegate: null
     property string name: "同步状态"
-    displayString.text:delegate != null ? delegate(models.get(currentIndex)) : models[currentIndex]
+    opacity: enabled === true ? 1.0 : 0.5
+    displayString.text:delegate != null ? delegate(models.stringList.get(currentIndex)) : models[currentIndex]
 
     mouseArea.onClicked: {
         Locator.showFloating("CustomizingComboBoxPanel",this)

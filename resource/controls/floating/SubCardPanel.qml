@@ -14,6 +14,26 @@ SubCardPanelForm {
     property int imageH: 0
     property int _duration: 200
     property int _easing: Easing.OutInBounce
+
+
+    interfaceListView1.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 1 ? ModelSet.getModel("DeviceDetailModel").slotList[0].interfaceList : interfaceListView1.model
+    interfaceListView2.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 2 ? ModelSet.getModel("DeviceDetailModel").slotList[1].interfaceList : interfaceListView2.model
+interfaceListView3.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 3 ? ModelSet.getModel("DeviceDetailModel").slotList[2].interfaceList : interfaceListView3.model
+interfaceListView4.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 4 ? ModelSet.getModel("DeviceDetailModel").slotList[3].interfaceList : interfaceListView4.model
+interfaceListView5.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 5 ? ModelSet.getModel("DeviceDetailModel").slotList[4].interfaceList : interfaceListView5.model
+interfaceListView6.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 6 ? ModelSet.getModel("DeviceDetailModel").slotList[5].interfaceList : interfaceListView6.model
+interfaceListView7.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 7 ? ModelSet.getModel("DeviceDetailModel").slotList[6].interfaceList : interfaceListView7.model
+interfaceListView8.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 8 ? ModelSet.getModel("DeviceDetailModel").slotList[7].interfaceList : interfaceListView8.model
+interfaceListView9.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 9 ? ModelSet.getModel("DeviceDetailModel").slotList[8].interfaceList : interfaceListView9.model
+interfaceListView10.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 10 ? ModelSet.getModel("DeviceDetailModel").slotList[9].interfaceList : interfaceListView10.model
+interfaceListView11.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 11 ? ModelSet.getModel("DeviceDetailModel").slotList[10].interfaceList : interfaceListView11.model
+interfaceListView12.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 12 ? ModelSet.getModel("DeviceDetailModel").slotList[11].interfaceList : interfaceListView12.model
+interfaceListView13.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 13 ? ModelSet.getModel("DeviceDetailModel").slotList[12].interfaceList : interfaceListView13.model
+interfaceListView14.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 14 ? ModelSet.getModel("DeviceDetailModel").slotList[13].interfaceList : interfaceListView14.model
+interfaceListView15.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 15 ? ModelSet.getModel("DeviceDetailModel").slotList[14].interfaceList : interfaceListView15.model
+interfaceListView16.model: ModelSet.getModel("DeviceDetailModel").slotList.length >= 16 ? ModelSet.getModel("DeviceDetailModel").slotList[15].interfaceList : interfaceListView16.model
+    //interfaceListView2.model:ModelSet.getModel("DeviceDetailModel").slotList.length >= 2 ? ModelSet.getModel("DeviceDetailModel").slotList[1].interfaceList : interfaceListView2.model
+
     Component.onCompleted:
     {
         transitions = [transitions[2],transitions[3]]
@@ -22,6 +42,7 @@ SubCardPanelForm {
         imageW=image.width
         imageH=image.height
     }
+
    transitions:
         [
             Transition {

@@ -1,0 +1,49 @@
+{
+"deviceId":0,
+"presets":[
+{
+    "name":"preset1",
+    "presetId":0
+},
+{
+    "name":" preset2",
+    "presetId":1
+},
+{
+    "name":" 这是一个大场景",
+    "presetId":2
+},
+{
+    "name":" 这是第二一个大场景",
+    "presetId":3
+},
+{
+    "name":" 这是测试场景",
+    "presetId":4
+},
+        {
+            "name":" 这是测试场景",
+            "presetId":5
+        },
+        {
+            "name":" 这是测试场景",
+            "presetId":6
+        },
+        {
+            "name":" 这是测试场景",
+            "presetId":7
+        },
+        {
+            "name":" 这是测试场景",
+            "presetId":8
+        },
+        {
+            "name":" 这是测试场景",
+            "presetId":9
+        },
+        {
+            "name":" 这是测试场景",
+            "presetId":10
+        }
+]
+}

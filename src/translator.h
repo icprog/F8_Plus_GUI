@@ -1,7 +1,7 @@
 #ifndef TRANSLATOR_H
 #define TRANSLATOR_H
 #include <QObject>
-
+//#include <QTranslator>
 class Translator : public QObject
 {
     Q_OBJECT

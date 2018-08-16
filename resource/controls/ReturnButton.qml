@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import "impl"
+import "../"
 ReturnButtonForm {
 
     signal clicked()
@@ -8,5 +9,8 @@ ReturnButtonForm {
     mouseArea.onClicked:
     {
         this.clicked();
+    }
+    onClicked: {
+        Locator.hideWin();
     }
 }

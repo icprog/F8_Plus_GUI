@@ -3,37 +3,60 @@
 BaseModel::BaseModel(QObject *parent) : QObject(parent)
 {
     connect(this,SIGNAL(completed()),this,SLOT(onCompleted()),Qt::QueuedConnection);
+    connect(this,SIGNAL(revertSignal()),this,SLOT(revert()),Qt::QueuedConnection);
     emit completed();
 }
 //为了保证初始化操作确实在子类构造完成后才执行,把初始化操作以槽的形式实现
+void BaseModel::setMonitorInterval(int msecs)
+{
+    _monitorInterval = msecs;
+}
 void BaseModel::onCompleted()
 {
-    _monitorTimer.setInterval(3000);
+    _monitorTimer.setInterval(_monitorInterval);
     _monitorTimer.setSingleShot(false);
-    _monitorTimer.start();
+    if(_monitorInterval != 0)
+        _monitorTimer.start();
     connect(&_monitorTimer,SIGNAL(timeout()),this,SIGNAL(requestLoad()),Qt::QueuedConnection);
-    ModelMonitor::getInstance()->registerModel(this); //注册自身到数据模型监视器
+    if(_monitorInterval != 0)
+        ModelMonitor::getInstance()->registerModel(this); //注册自身到数据模型监视器
     enableSync();
-    emit requestLoad(); //立即请求装载一次数据
+    //emit requestLoad(); //立即请求装载一次数据
 }
-
+static bool __emitSignal = true;//此处getValue并重入安全，但此案例应该无碍
 QJsonValue BaseModel::getValue(const QString& key)
 {
+    if(_rawJson.isEmpty() && _buffJson.isEmpty())
+    {
+        __emitSignal = false; //getValue中装载数据禁掉信号，避免引起qml Binding loop detected
+        load();
+        __emitSignal = true;
+    }
     return _buffJson.value(key);
 }
 void BaseModel::setValue(const QString& key,const QJsonValue& value)
 {
     _buffJson[key] = value;
 }
+#include <QMutex>
 int BaseModel::load()
 {
+    /**
+        load()有可能在界面线程(主要是初始getValue()中)和ModelMonitor线程同时调用
+        此处加锁考虑以下方面:
+        1. readLowLevel涉及全局IO资源例如socket。
+
+    **/
+    static QMutex mutex;    //，而load()readLowLevel涉及全局IO资源例如socket，
+    mutex.lock();
     QJsonObject rdJson = readLowLevel();
     if(rdJson != _rawJson)
     {
         _rawJson = rdJson;
         if(_syncFlag)
-            revert();
+            emit revertSignal();
     }
+    mutex.unlock();
     return 0;
 }
 void BaseModel::revert()
@@ -41,7 +64,9 @@ void BaseModel::revert()
     if(_buffJson != _rawJson)
     {
         _buffJson = _rawJson;
-        emit dataChanged();
+        loadModel(_buffJson);
+        if(__emitSignal)
+            emit dataChanged();
     }
 
 }
