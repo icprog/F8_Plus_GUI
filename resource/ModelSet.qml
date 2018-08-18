@@ -9,6 +9,8 @@ Item{
         return models
     }
     function getModel(name) {
+        console.log("qml getModel")
+        console.log(name)
         if(!_getModels().hasOwnProperty(name))
         {
             var model = ModelManager.getModel(name)

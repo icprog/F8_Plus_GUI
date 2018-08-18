@@ -29,5 +29,4 @@ QObject* TranslatorHelper::translator(){
              trans.load(":/tr_"+lan+".qm");
              qApp->installTranslator(&trans);
              emit translatorChanged();
-
 }

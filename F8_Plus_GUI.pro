@@ -35,7 +35,8 @@ SOURCES += \
     src/model/mvrenablemodel.cpp \
     src/model/devicegenlockmodel.cpp \
     src/model/presetsmodel.cpp \
-    src/model/preset.cpp
+    src/model/preset.cpp \
+    src/debug/debughandler.cpp
 
 
 RESOURCES += \
@@ -77,7 +78,8 @@ HEADERS += \
     src/model/mvrenablemodel.h \
     src/model/devicegenlockmodel.h \
     src/model/presetsmodel.h \
-    src/model/preset.h
+    src/model/preset.h \
+    src/debug/debughandler.h
 
 
 # 设置生成的语言库存放的路径，我这边是放在resources文件夹下面，生成中文和英文两种，不要认为是直接翻译好的，这两个文件刚生成的时内容是一样的，需要自己去翻译，这个后面会说。
