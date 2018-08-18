@@ -33,6 +33,5 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("Utility", Utility::getInstance());
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));
     QTimer::singleShot(10,initLanguage);
-    //qDebug("%d\n",5/0);
     return app.exec();
 }
