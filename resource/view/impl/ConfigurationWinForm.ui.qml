@@ -3,58 +3,41 @@ import QtQuick.Controls 2.0
 import "../../controls"
 import "../"
 import "../base"
+
 BaseView {
     id: win
     width: 1280
     height: 800
     property alias text1: text1
-    property alias returnButton: returnButton
     property alias btnAdvance: btnAdvance
     property alias btnFw: btnFw
     property alias btnNet: btnNet
     property int m_state: 0 // 0 网络通讯   1  固件版本     2  高级设置
 
-    Image {
-        id: image
-        visible: true
-        fillMode: Image.Stretch
-        z: -1
-        anchors.fill: parent
-        source: "qrc:/image/common/background.png"
-        DevNameLabel {
-            x: 796
-            y: 62
-        }
-        ReturnButton {
-            id: returnButton
-            x: 18
-            y: 28
-        }
-        ConfigureSubButton {
-            id: btnNet
-            x: 34
-            y: 168
-            toggle: m_state === 0 ? true : false
-        }
+    ConfigureSubButton {
+        id: btnNet
+        x: 34
+        y: 168
+        toggle: m_state === 0 ? true : false
+    }
 
-        ConfigureSubButton {
-            id: btnFw
-            x: 34
-            y: 366
-            text: "固件版本"
-            toggle: m_state === 1 ? true : false
-            pressedImg: "qrc:/image/config_page/icon_fireware_ver_pressed.png"
-            releaseImg: "qrc:/image/config_page/icon_fireware_ver_normal.png"
-        }
-        ConfigureSubButton {
-            id: btnAdvance
-            x: 34
-            y: 536
-            text: "高级设置"
-            toggle: m_state === 2 ? true : false
-            pressedImg: "qrc:/image/config_page/icon_advance_pressed.png"
-            releaseImg: "qrc:/image/config_page/icon_advance_normal.png"
-        }
+    ConfigureSubButton {
+        id: btnFw
+        x: 34
+        y: 366
+        text: "固件版本"
+        toggle: m_state === 1 ? true : false
+        pressedImg: "qrc:/image/config_page/icon_fireware_ver_pressed.png"
+        releaseImg: "qrc:/image/config_page/icon_fireware_ver_normal.png"
+    }
+    ConfigureSubButton {
+        id: btnAdvance
+        x: 34
+        y: 536
+        text: "高级设置"
+        toggle: m_state === 2 ? true : false
+        pressedImg: "qrc:/image/config_page/icon_advance_pressed.png"
+        releaseImg: "qrc:/image/config_page/icon_advance_normal.png"
     }
 
     Rectangle {
@@ -105,7 +88,7 @@ BaseView {
                 width: 128
                 height: 32
                 color: "#ffffff"
-                text:  "网络通讯"
+                text: "网络通讯"
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignLeft
                 font.pixelSize: 32

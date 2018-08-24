@@ -24,7 +24,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>官方微信</source>
+        <source>官方网站</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -132,6 +132,10 @@
         <source>返回主界面时长</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>输入源</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfigureFirewareVersionSubWin</name>
@@ -147,6 +151,33 @@
         <source>输出子卡</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>主控卡</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>背板</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输入卡槽</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>输出卡槽</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConfigureFirewareVersionSubWinForm.ui</name>
+    <message>
+        <source>主控卡</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>背板</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfigureNetSubWin</name>
@@ -159,7 +190,31 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>手动设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IP获取方式：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IP地址：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>子网掩码：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>网关：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>IP地址</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IP地址不合规</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -167,41 +222,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>子网掩码不合规</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>网关</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DHCP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>手动设置</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DeviceDetailModel</name>
-    <message>
-        <source>输入源</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DeviceFirwareVersionModel</name>
-    <message>
-        <source>主控卡</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>输入卡槽</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>输出卡槽</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>背板</source>
+        <source>网关不合规</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -213,34 +242,6 @@
     </message>
     <message>
         <source>设备状态</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>主/从状态</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>同步状态</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>主控卡状态</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>风扇板状态</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>背板状态</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>电压</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>温度</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -265,6 +266,38 @@
     </message>
     <message>
         <source>张异常</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>有效：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>已用：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>未用：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>主/从状态：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>同步状态：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>主控卡状态：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>风扇板状态：</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>背板状态：</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -333,6 +366,29 @@
         <source></source>
         <translation></translation>
     </message>
+    <message>
+        <source>场景</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>设置</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>预监</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>关于</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NetAddrPanel</name>
+    <message>
+        <source>IP地址</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NumberKeyboard</name>
@@ -363,7 +419,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>关机</source>
+        <source>确定</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -383,6 +439,13 @@
     </message>
     <message>
         <source>密码错误</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UnLockWinForm.ui</name>
+    <message>
+        <source>*</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -4,9 +4,11 @@ ListView {
     y: 80+(435-height)/2
     property bool isUi: model === listModel
     width: 64
-    height:isUi === true ? (2 * model.count - 1) * 50 : (2 * model.length - 1) * 50
+    //height: isUi === true ? (2 * model.count - 1) * 50 : (2 * model.length - 1) * 50
+    height: model.length === 0 ? 0 : (2 * model.length - 1) * 50
     boundsBehavior: Flickable.StopAtBounds
     highlightFollowsCurrentItem: true
+    property alias initModel: listModel
     spacing: 50
     model: ListModel {
         id : listModel

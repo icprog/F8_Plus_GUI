@@ -1,5 +1,9 @@
+#include <QJsonDocument>
+#include <QFile>
+#include <QDebug>
+#include <QFileInfo>
 #include "basemodel.h"
-#include "src/modelmonitor.h"
+#include "src/modelmanager.h"
 BaseModel::BaseModel(QObject *parent) : QObject(parent)
 {
     connect(this,SIGNAL(completed()),this,SLOT(onCompleted()),Qt::QueuedConnection);
@@ -17,21 +21,20 @@ void BaseModel::onCompleted()
     _monitorTimer.setSingleShot(false);
     if(_monitorInterval != 0)
         _monitorTimer.start();
-    connect(&_monitorTimer,SIGNAL(timeout()),this,SIGNAL(requestLoad()),Qt::QueuedConnection);
-    if(_monitorInterval != 0)
-        ModelMonitor::getInstance()->registerModel(this); //注册自身到数据模型监视器
+    connect(&_monitorTimer,SIGNAL(timeout()),this,SIGNAL(requestLoad()));
     enableSync();
     //emit requestLoad(); //立即请求装载一次数据
 }
-static bool __emitSignal = true;//此处getValue并重入安全，但此案例应该无碍
+int BaseModel::init()
+{
+    return load();
+}
+
+QJsonObject& BaseModel::json(){
+    return _buffJson;
+}
 QJsonValue BaseModel::getValue(const QString& key)
 {
-    if(_rawJson.isEmpty() && _buffJson.isEmpty())
-    {
-        __emitSignal = false; //getValue中装载数据禁掉信号，避免引起qml Binding loop detected
-        load();
-        __emitSignal = true;
-    }
     return _buffJson.value(key);
 }
 void BaseModel::setValue(const QString& key,const QJsonValue& value)
@@ -42,7 +45,6 @@ void BaseModel::setValue(const QString& key,const QJsonValue& value)
 int BaseModel::load()
 {
     /**
-        load()有可能在界面线程(主要是初始getValue()中)和ModelMonitor线程同时调用
         此处加锁考虑以下方面:
         1. readLowLevel涉及全局IO资源例如socket。
 
@@ -65,8 +67,7 @@ void BaseModel::revert()
     {
         _buffJson = _rawJson;
         loadModel(_buffJson);
-        if(__emitSignal)
-            emit dataChanged();
+        emit dataChanged();
     }
 
 }
@@ -85,12 +86,42 @@ int BaseModel::flush()
 
 }
 
-#ifdef DEBUG_WITHOUT_MIDDLEWARE
-#include <QFile>
-#include <QJsonDocument>
-#include <QDebug>
-#include <QFileInfo>
+
 QJsonObject BaseModel::readLowLevel()
+{
+    switch (fromWhere) {
+    case 0:
+        return _readLowLevelFromFile();
+        break;
+    case 1:
+        return _readLowLevelFromMiddleWare();
+    default:
+        return QJsonObject();
+        break;
+    }
+}
+#include "src/protocol_v4_cli/protocolv4manager.h"
+QJsonObject BaseModel::_readLowLevelFromMiddleWare()
+{
+    ProtocolV4Pkg pkg;
+    pkg.Code = 0;
+    pkg.ApolloCode = 1;
+    pkg.Arg1 = Arg1;
+    memcpy(pkg.Arg2,Arg2,4);
+    if(0 != ProtocolV4Manager::getInstance()->sendPkg(pkg))
+    {
+        qWarning("send %s failure",this->className().toUtf8().data());
+        return QJsonObject();
+    }
+    ProtocolV4Pkg& recvPkg = ProtocolV4Manager::getInstance()->recvPkg();
+    if(!recvPkg.isValid)
+    {
+        qWarning("recv %s failure",this->className().toUtf8().data());
+        return QJsonObject();
+    }
+    return recvPkg.json;
+}
+QJsonObject BaseModel::_readLowLevelFromFile()
 {
     if(_fileName == "")
     {
@@ -108,9 +139,10 @@ QJsonObject BaseModel::readLowLevel()
     QFile f(_filePath+_fileName);
     if( false == f.open(QIODevice::ReadOnly))
     {
-        qDebug("open the json file for read failure");
+        qWarning("open the json file for read failure");
         return QJsonObject();
     }
+
     QJsonDocument jsonDoc = QJsonDocument::fromJson(f.readAll());
     f.close();
     return  jsonDoc.object();
@@ -118,6 +150,27 @@ QJsonObject BaseModel::readLowLevel()
 
 }
 int BaseModel::writeLowLevel(const QJsonObject& json)
+{
+    int ret = 0;
+    switch (fromWhere) {
+    case 0:
+        ret = _writeLowLevelToFile(json);
+        break;
+    case 1:
+        ret = _writeLowLevelToMiddleWare(json);
+    default:
+        ret = -1;
+        break;
+    }
+    if(ret != 0 )
+        qWarning( "%s writeLowLevel failure.",this->metaObject()->className() );
+    return ret;
+}
+int BaseModel::_writeLowLevelToMiddleWare(const QJsonObject& )
+{
+    return 0;
+}
+int BaseModel::_writeLowLevelToFile(const QJsonObject& json)
 {
     QJsonDocument jsonDoc(json);
     QFile f(_filePath+_fileName);
@@ -131,5 +184,4 @@ int BaseModel::writeLowLevel(const QJsonObject& json)
     return 0;
 }
 
-#endif//DEBUG_WITHOUT_MIDDLEWARE
 

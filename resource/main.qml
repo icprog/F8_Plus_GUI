@@ -18,12 +18,13 @@ ApplicationWindow {
     StackView {
         id: mainStackView
         anchors.fill: parent
+       // initialItem: MainWin{}
+
         initialItem: LockWin{}
         Component.onCompleted: {
             Locator.mainStackView = this
         }
     }
-
     Rectangle{
         anchors.fill: parent
         color:"#00ffffff"

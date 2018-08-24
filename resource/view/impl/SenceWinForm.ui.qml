@@ -62,7 +62,7 @@ BaseView {
                     x: 68
                     y: 44
                     color: "#ffffff"
-                    text: qsTr("Text")
+                    text: "Text"
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     font.pixelSize: 30
@@ -111,8 +111,9 @@ BaseView {
 
                 Text {
                     id: text1
-                    x: 24
+                    x: 8
                     y: 20
+                    width: 137
                     height: 24
                     color: "#8ea0c0"
                     text: "Load模式"

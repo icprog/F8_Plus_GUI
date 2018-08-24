@@ -5,6 +5,7 @@
 #include <QTranslator>
 #include <QApplication>
 #include "translator.h"
+#include "custom_declare.h"
 class TranslatorHelper : public QObject
 {
     Q_OBJECT
@@ -13,7 +14,7 @@ class TranslatorHelper : public QObject
 
     //void changeLanguage(const QString& lang);
 public:
-    static TranslatorHelper* getInstance();
+    DECLARE_GET_INSTANCE(TranslatorHelper)
     QObject* translator();
 signals:
     void translatorChanged();   //当语言选项发生变化是出发通知

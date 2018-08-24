@@ -8,6 +8,7 @@ NumberInputForm {
     property var max: null
     property var min: null
     opacity: enabled === true ? 1.0 : 0.5
+    text2.text: unit
     Component.onCompleted: {
         if(max === null)
             max = 90

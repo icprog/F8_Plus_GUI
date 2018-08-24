@@ -25,7 +25,11 @@
     </message>
     <message>
         <source>官方微信</source>
-        <translation>Official WeChat</translation>
+        <translation type="vanished">Official WeChat</translation>
+    </message>
+    <message>
+        <source>官方网站</source>
+        <translation>Official Website</translation>
     </message>
 </context>
 <context>
@@ -62,7 +66,7 @@
     <name>ConfigureAdvanceWin</name>
     <message>
         <source>同步状态：</source>
-        <translation>Synchronization:</translation>
+        <translation>Sync:</translation>
     </message>
     <message>
         <source>同步源选择：</source>
@@ -136,6 +140,10 @@
         <source>返回主界面时长</source>
         <translation>Go Homepage</translation>
     </message>
+    <message>
+        <source>输入源</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfigureFirewareVersionSubWin</name>
@@ -145,11 +153,38 @@
     </message>
     <message>
         <source>输入子卡</source>
-        <translation>Input Card</translation>
+        <translation>Input</translation>
     </message>
     <message>
         <source>输出子卡</source>
-        <translation>Output Card</translation>
+        <translation>Output</translation>
+    </message>
+    <message>
+        <source>主控卡</source>
+        <translation>Main Control Card</translation>
+    </message>
+    <message>
+        <source>背板</source>
+        <translation>Backplane</translation>
+    </message>
+    <message>
+        <source>输入卡槽</source>
+        <translation>Input</translation>
+    </message>
+    <message>
+        <source>输出卡槽</source>
+        <translation>Output</translation>
+    </message>
+</context>
+<context>
+    <name>ConfigureFirewareVersionSubWinForm.ui</name>
+    <message>
+        <source>主控卡</source>
+        <translation>Main Control Card</translation>
+    </message>
+    <message>
+        <source>背板</source>
+        <translation>Backplane</translation>
     </message>
 </context>
 <context>
@@ -176,7 +211,7 @@
     </message>
     <message>
         <source>DHCP</source>
-        <translation>DHCP</translation>
+        <translation type="vanished">DHCP</translation>
     </message>
     <message>
         <source>手动获取</source>
@@ -186,31 +221,78 @@
         <source>手动设置</source>
         <translation>Manual</translation>
     </message>
+    <message>
+        <source>IP获取方式：</source>
+        <translation>IP Settings:</translation>
+    </message>
+    <message>
+        <source>IP地址：</source>
+        <translation>IP Address:</translation>
+    </message>
+    <message>
+        <source>子网掩码：</source>
+        <translation>Subnet Mask:</translation>
+    </message>
+    <message>
+        <source>网关：</source>
+        <translation>Gateway:</translation>
+    </message>
+    <message>
+        <source>IP地址不合规</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>子网掩码不合规</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>网关不合规</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConfigureNetSubWinForm.ui</name>
+    <message>
+        <source>IP获取方式 :</source>
+        <translation type="vanished">IP Settings:</translation>
+    </message>
+    <message>
+        <source>IP地址 :</source>
+        <translation type="vanished">IP Address:</translation>
+    </message>
+    <message>
+        <source>子网掩码 :</source>
+        <translation type="vanished">Subnet Mask:</translation>
+    </message>
+    <message>
+        <source>网关 :</source>
+        <translation type="vanished">Gateway:</translation>
+    </message>
 </context>
 <context>
     <name>DeviceDetailModel</name>
     <message>
         <source>输入源</source>
-        <translation>Input</translation>
+        <translation type="vanished">Input</translation>
     </message>
 </context>
 <context>
     <name>DeviceFirwareVersionModel</name>
     <message>
         <source>主控卡</source>
-        <translation>Main Control Card</translation>
+        <translation type="vanished">Main Control Card</translation>
     </message>
     <message>
         <source>输入卡槽</source>
-        <translation>Input</translation>
+        <translation type="vanished">Input</translation>
     </message>
     <message>
         <source>输出卡槽</source>
-        <translation>Output</translation>
+        <translation type="vanished">Output</translation>
     </message>
     <message>
         <source>背板</source>
-        <translation>Backplane</translation>
+        <translation type="vanished">Backplane</translation>
     </message>
 </context>
 <context>
@@ -225,31 +307,31 @@
     </message>
     <message>
         <source>主/从状态</source>
-        <translation>Master/Slave</translation>
+        <translation type="vanished">Master/Slave</translation>
     </message>
     <message>
         <source>同步状态</source>
-        <translation>Synchronization</translation>
+        <translation type="vanished">Synchronization</translation>
     </message>
     <message>
         <source>主控卡状态</source>
-        <translation>Main Control Card</translation>
+        <translation type="vanished">Main Control Card</translation>
     </message>
     <message>
         <source>风扇板状态</source>
-        <translation>Fan Board</translation>
+        <translation type="vanished">Fan Board</translation>
     </message>
     <message>
         <source>背板状态</source>
-        <translation>Backplane</translation>
+        <translation type="vanished">Backplane</translation>
     </message>
     <message>
         <source>电压</source>
-        <translation>Voltage</translation>
+        <translation type="vanished">Voltage</translation>
     </message>
     <message>
         <source>温度</source>
-        <translation>Temperature</translation>
+        <translation type="vanished">Temperature</translation>
     </message>
     <message>
         <source>设备</source>
@@ -274,6 +356,38 @@
     <message>
         <source>张异常</source>
         <translation>Abnormal</translation>
+    </message>
+    <message>
+        <source>有效：</source>
+        <translation>available:</translation>
+    </message>
+    <message>
+        <source>已用：</source>
+        <translation>used:</translation>
+    </message>
+    <message>
+        <source>未用：</source>
+        <translation>unused:</translation>
+    </message>
+    <message>
+        <source>主/从状态：</source>
+        <translation>Master/Slave:</translation>
+    </message>
+    <message>
+        <source>同步状态：</source>
+        <translation>Sync:</translation>
+    </message>
+    <message>
+        <source>主控卡状态：</source>
+        <translation>Main Control Card:</translation>
+    </message>
+    <message>
+        <source>风扇板状态：</source>
+        <translation>Fan Board:</translation>
+    </message>
+    <message>
+        <source>背板状态：</source>
+        <translation>Backplane:</translation>
     </message>
 </context>
 <context>
@@ -332,7 +446,7 @@
     </message>
     <message>
         <source>语言</source>
-        <translation>Language</translation>
+        <translation>Lang</translation>
     </message>
 </context>
 <context>
@@ -343,23 +457,30 @@
     </message>
     <message>
         <source>场景</source>
-        <translation type="vanished">Sence</translation>
+        <translation>Sence</translation>
     </message>
     <message>
         <source>设置</source>
-        <translation type="vanished">Setting</translation>
+        <translation>Setting</translation>
     </message>
     <message>
         <source>预监</source>
-        <translation type="vanished">MVR</translation>
+        <translation>MVR</translation>
     </message>
     <message>
         <source>关于</source>
-        <translation type="vanished">About</translation>
+        <translation>About</translation>
     </message>
     <message>
         <source></source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>NetAddrPanel</name>
+    <message>
+        <source>IP地址</source>
+        <translation>IP Address</translation>
     </message>
 </context>
 <context>
@@ -392,7 +513,11 @@
     </message>
     <message>
         <source>关机</source>
-        <translation>Shut Down</translation>
+        <translation type="obsolete">OK</translation>
+    </message>
+    <message>
+        <source>确定</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -412,6 +537,13 @@
     <message>
         <source>密码错误</source>
         <translation>Incorrect password</translation>
+    </message>
+</context>
+<context>
+    <name>UnLockWinForm.ui</name>
+    <message>
+        <source>*</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

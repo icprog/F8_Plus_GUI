@@ -1,14 +1,17 @@
 import QtQuick 2.4
 import "../../../controls/"
 import "../base/"
+
 BaseFloatingPanel {
     width: 1280
     height: 800
+    property alias text2: text2
+    property alias text1: text1
     property alias xButton: xButton
     property alias numberKeyboard: numberKeyboard
     property int m_state: 0 //0 输入第一字节 ，1 输入第二字节，2 输入第三字节，3 输入第四字节
     property bool addrInvalid: false
-    property NetAddrInput netAddrInput:context
+    property NetAddrInput netAddrInput: context
     context: NetAddrInput {
         visible: false
     }
@@ -76,7 +79,7 @@ BaseFloatingPanel {
             height: 29
             color: "#ffffff"
             //text: m_state <0 ? "" : addr[0]
-            text: m_state <0 || addr[0] === -1 ? "" : addr[0]
+            text: m_state < 0 || addr[0] === -1 ? "" : addr[0]
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 36
@@ -172,7 +175,7 @@ BaseFloatingPanel {
             height: 29
             color: "#ffffff"
             //text: m_state <1 ? "" : addr[1]
-            text: m_state <1 || addr[1] === -1 ? "" : addr[1]
+            text: m_state < 1 || addr[1] === -1 ? "" : addr[1]
             font.pixelSize: 36
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
@@ -186,7 +189,7 @@ BaseFloatingPanel {
             height: 29
             color: "#ffffff"
             //text: m_state <2? "" : addr[2]
-            text: m_state <2 || addr[2] === -1 ? "" : addr[2]
+            text: m_state < 2 || addr[2] === -1 ? "" : addr[2]
             font.pixelSize: 36
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
@@ -200,7 +203,7 @@ BaseFloatingPanel {
             height: 29
             color: "#ffffff"
             //text: m_state<3 ? "" : addr[3]
-            text:m_state <3 ||  addr[3] === -1 ? "" : addr[3]
+            text: m_state < 3 || addr[3] === -1 ? "" : addr[3]
             font.pixelSize: 36
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter

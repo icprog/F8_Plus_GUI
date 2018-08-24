@@ -1,11 +1,7 @@
 #include "devicegenlockmodel.h"
-
+#include "src/modelmanager.h"
+RIGSTER_MODEL(DeviceGenlockModel)
 DeviceGenlockModel::DeviceGenlockModel()
 {
-    connect(this,SIGNAL(dataChanged()),this,SIGNAL(enableChanged()));
-    connect(this,SIGNAL(dataChanged()),this,SIGNAL(typeChanged()));
-    connect(this,SIGNAL(dataChanged()),this,SIGNAL(inputIdChanged()));
-#ifdef DEBUG_WITHOUT_MIDDLEWARE
     setFileName("DeviceGenlock.json");
-#endif
 }

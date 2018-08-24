@@ -15,33 +15,16 @@ class DeviceIpModel : public BaseModel
     Q_OBJECT
     /** 使用Q_PROPERTY宏定义qml域属性 **/
     Q_PROPERTY( QString mac READ mac  NOTIFY macChanged)//mac地址
-    Q_PROPERTY( QList<int> ip READ ip WRITE setIp NOTIFY ipChanged)//ip地址
-    Q_PROPERTY( QList<int> subnetMask READ subnetMask WRITE setSubnetMask NOTIFY subnetMaskChanged)//子网掩码
-    Q_PROPERTY( QList<int> gateway READ gateway  NOTIFY gatewayChanged)//网关
     explicit DeviceIpModel(QObject *parent = 0);
-#ifndef DEBUG_WITHOUT_MIDDLEWARE
-    QJsonObject readLowLevel();                 //具体的业务底层读接口
-    int writeLowLevel(const QJsonObject& json); //具体的业务底层写接口
-#endif//DEBUG_WITHOUT_MIDDLEWARE
 public:
-    DECLARE_GET_INSTANCE(DeviceIpModel)
+    DECLARE_GET_INSTANCE_FOR_MODEL(DeviceIpModel)
 
     QString mac();
-    QList<int> ip();
-    QList<int> subnetMask();
-    QList<int> gateway();
-
-
-    void setIp(QList<int> ip);
-    void setSubnetMask( QList<int> netMask);
-    void setGateway( QList<int> gateWay);
+    Q_INVOKABLE bool testIp(const QString& ip);
 
 
 signals:
     void macChanged();
-    void ipChanged();
-    void subnetMaskChanged();
-    void gatewayChanged();
 
 };
 

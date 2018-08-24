@@ -12,7 +12,7 @@ class DeviceRestoreFactoryModel : public BaseModel
 #endif//DEBUG_WITHOUT_MIDDLEWARE
     DeviceRestoreFactoryModel();
 public:
-    DECLARE_GET_INSTANCE(DeviceRestoreFactoryModel)
+    DECLARE_GET_INSTANCE_FOR_MODEL(DeviceRestoreFactoryModel)
 
     int restoreType();
     void setRestoreType(int restoreType);

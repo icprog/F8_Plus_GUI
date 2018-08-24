@@ -62,7 +62,7 @@ BaseFloatingPanel {
                 id: hollowButton1
                 x: 326
                 y: 226
-                text: "关机"
+                text: "确定"
             }
         }
     }

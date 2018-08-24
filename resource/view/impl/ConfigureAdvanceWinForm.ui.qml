@@ -48,6 +48,8 @@ Item {
                 id: customizingComboBox
                 x: 245
                 y: 36
+                width: 300
+                height: 62
             }
 
             Text {
@@ -91,25 +93,34 @@ Item {
             Text {
                 id: text6
                 x: 48
-                y: 546
+                y: 526
+                width: 190
+                height: 81
                 color: "#8ea0c0"
                 text: "U盘离线升级 :"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignLeft
+                clip: false
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 font.pixelSize: 28
             }
 
             CustomizingComboBox {
                 id: customizingComboBox1
-                x: 245
                 y: 134
+                width: customizingComboBox.width
+                anchors.left: customizingComboBox.left
+                anchors.leftMargin: 0
                 name: "同步源选择"
                 models: ["GenLock", "输入源1", "输入源2", "输入源3", "输入源4", "输入源5", "输入源6", "输入源7", "输入源8", "输入源9", "输入源10", "输入源11", "输入源12"]
             }
 
             NumberInput {
                 id: numberInput
-                x: 243
                 y: 289
-                width: 263
+                width: customizingComboBox.width
+                anchors.left: customizingComboBox.left
+                anchors.leftMargin: -2
                 visible: true
                 realNumber: true
                 title: "LED Gamma"
@@ -120,76 +131,79 @@ Item {
 
             Text {
                 id: text7
-                x: 534
                 y: 254
                 color: "#8ea0c0"
                 text: "(范围：0.25～4.00)"
+                anchors.left: numberInput.right
+                anchors.leftMargin: 28
                 font.pixelSize: 28
             }
 
             NumberInput {
                 id: numberInput1
-                x: 243
                 y: 326
-                width: 263
+                width: customizingComboBox.width
                 text: " "
+                anchors.left: customizingComboBox.left
+                anchors.leftMargin: -2
                 anchors.verticalCenterOffset: 101
                 anchors.verticalCenter: text3.verticalCenter
-
-                Text {
-                    id: text9
-                    x: 233
-                    y: 10
-                    height: 42
-                    color: "#8ea0c0"
-                    text: "S"
-                    font.pixelSize: 28
-                    wrapMode: Text.WordWrap
-                }
             }
 
             Text {
                 id: text8
-                x: 534
                 y: 355
                 color: "#8ea0c0"
                 text: "(范围：5～90)"
+                anchors.left: text7.left
+                anchors.leftMargin: 0
                 font.pixelSize: 28
             }
 
             CustomizingComboBox {
                 id: customizingComboBox2
-                x: 243
                 y: 440
+                width: customizingComboBox.width
+                anchors.left: customizingComboBox.left
+                anchors.leftMargin: 0
                 name: "恢复出厂设置"
                 models: ["保存IP", "保存IP和EDID", "全部恢复"]
             }
             HollowButton {
                 id: hollowButton1
-                x: 833
-                y: 151
+                x: 752
+                y: 36
+                width: 167
+                height: 60
+                anchors.verticalCenterOffset: 0
+                anchors.verticalCenter: customizingComboBox.verticalCenter
+                clip: false
             }
             HollowButton {
                 id: hollowButton
-                x: 534
                 y: 442
                 text: "恢复"
+                anchors.left: text7.left
+                anchors.leftMargin: 0
             }
 
             Rectangle {
                 id: rectangle1
-                x: 245
                 y: 536
-                width: 263
+                width: customizingComboBox.width
                 height: 62
                 color: "#3b547c"
+                anchors.left: customizingComboBox.left
+                anchors.leftMargin: 0
 
                 Text {
                     id: text10
+                    x: 0
                     color: "#00c8fa"
                     text: "未见测到U盘"
+                    leftPadding: 10
                     verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
+                    horizontalAlignment: Text.AlignLeft
                     anchors.fill: parent
                     font.pixelSize: 28
                 }
@@ -197,10 +211,11 @@ Item {
 
             HollowButton {
                 id: hollowButton2
-                x: 534
                 y: 538
                 enabled: false
                 text: "升级"
+                anchors.left: text7.left
+                anchors.leftMargin: 0
             }
         }
     }

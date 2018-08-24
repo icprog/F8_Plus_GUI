@@ -7,7 +7,7 @@ ShutdownQueryPanelForm {
     name:"ShutdownQueryPanel"
     text1.text: TranslatorHelper.translator.tr(qsTr("您确定现在将设备关闭吗？"))
     hollowButton.text: TranslatorHelper.translator.tr(qsTr("取消"))
-    hollowButton1.text: TranslatorHelper.translator.tr(qsTr("关机"))
+    hollowButton1.text: TranslatorHelper.translator.tr(qsTr("确定"))
     hollowButton.onClicked: Locator.hideFloating(this)
     hollowButton1.onClicked: Locator.hideFloating(this)
     property int  _duration: 500

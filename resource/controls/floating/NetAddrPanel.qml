@@ -6,6 +6,8 @@ import "impl"
 NetAddrPanelForm {
     visible:  false
     name : "NetAddrPanel"
+    text1.text:netAddrInput.title
+    text2.text:netAddrInput.tisp
     CustomizingTimer{
         id:timer
     }
@@ -30,7 +32,16 @@ NetAddrPanelForm {
                 timer.setTimeout(function(){addrInvalid = false},3000)
                 return;
             }
-
+            if(  netAddrInput.title === TranslatorHelper.translator.tr(qsTr("IP地址")))
+            {
+                var ipStr = parseInt(addr[0])+"."+parseInt(addr[1])+"."+parseInt(addr[2])+"."+parseInt(addr[3])
+                if( !ModelSet.getModel("DeviceIpModel").testIp(ipStr))
+                {
+                    addrInvalid = true
+                    timer.setTimeout(function(){addrInvalid = false},3000)
+                    return
+                }
+            }
             netAddrInput.addr[0] = addr[0]
             netAddrInput.addr[1] = addr[1]
             netAddrInput.addr[2] = addr[2]
@@ -64,19 +75,30 @@ NetAddrPanelForm {
             var val = parseInt(value)
             if(addr[m_state] === -1)
                 addr[m_state] = 0
-            if(addr[m_state]*10+val<256)
+            var err = false
+            if(addr[m_state]*10+val>=256 )
+                err =true
+            if( !err && netAddrInput.title === TranslatorHelper.translator.tr(qsTr("IP地址")))
             {
-                setDiagital(m_state,addr[m_state]*10+val)
-                if(addr[m_state] > 99)
-                {
-                    if( m_state < 3)
-                        m_state +=1
-                }
+
+                if(m_state === 0 && addr[0]*10+val >= 224 && addr[0]*10+val <= 239)
+                    err = true
             }
-            else
+            if(err)
             {
                 addrInvalid = true
                 timer.setTimeout(function(){addrInvalid = false},3000)
+                return
+            }
+
+            if(m_state === 0)
+                addr[m_state] >= 224 && addr[m_state] <= 239
+            setDiagital(m_state,addr[m_state]*10+val)
+            if(addr[m_state] > 99)
+            {
+                if( m_state < 3)
+                    m_state +=1
+
             }
 
         }

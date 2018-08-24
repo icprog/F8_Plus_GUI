@@ -12,7 +12,7 @@ class MVREnableModel : public BaseModel
     int writeLowLevel(const QJsonObject& json); //具体的业务底层写接口
 #endif//DEBUG_WITHOUT_MIDDLEWARE
 public:
-    DECLARE_GET_INSTANCE(MVREnableModel)
+    DECLARE_GET_INSTANCE_FOR_MODEL(MVREnableModel)
     int enable(){return getValue("enable").toInt();}
     void setEnable(int enable){setValue("enable",enable);}
 signals:

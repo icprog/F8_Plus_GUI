@@ -6,12 +6,7 @@ TranslatorHelper::TranslatorHelper(QObject *parent) : QObject(parent)
 {
     connect(LanguageModel::getInstance(),SIGNAL(langChanged()),this,SLOT(update()));
 }
-TranslatorHelper* TranslatorHelper::getInstance(){
-        static TranslatorHelper* _instance = nullptr;
-        if(_instance == nullptr)
-            _instance = new TranslatorHelper;
-        return _instance;
-    }
+
 QObject* TranslatorHelper::translator(){
     return Translator::getInstance();
 }

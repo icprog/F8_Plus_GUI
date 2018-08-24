@@ -9,7 +9,7 @@ UnLockWinForm {
     text1.text: TranslatorHelper.translator.tr(qsTr("输入4位数字密码"))
     text6.text: TranslatorHelper.translator.tr(qsTr("忘记密码请在WEB页面中修改"))
     text7.text: TranslatorHelper.translator.tr(qsTr("密码错误"))
-    returnButton.text: TranslatorHelper.translator.tr(qsTr("取消"))
+    winName:  TranslatorHelper.translator.tr(qsTr("取消"))
     function veryfyPwd(pwd)
     {
         return pwd[0] === 1 && pwd[1] === 2 && pwd[2] === 3 && pwd[3] === 4

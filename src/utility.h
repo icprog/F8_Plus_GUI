@@ -6,12 +6,14 @@
 #include <QEventLoop>
 #include <QTimer>
 #include <QMutex>
+#include "custom_declare.h"
+
 class Utility : public QObject
 {
     Q_OBJECT
     explicit Utility(QObject *parent = 0);
 public:
-    static Utility* getInstance();
+    DECLARE_GET_INSTANCE(Utility)
     Q_INVOKABLE quint64 createMutext()
     {
         return (quint64)new QMutex;
@@ -24,7 +26,7 @@ public:
     {
         ((QMutex*)lock)->unlock();
     }
-    Q_INVOKABLE void msleep(unsigned long msecs);
+    //Q_INVOKABLE void msleep(unsigned long msecs);
 
 
 signals:

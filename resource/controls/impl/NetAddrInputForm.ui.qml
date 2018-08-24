@@ -6,7 +6,7 @@ Item {
     height: 62
     property alias mouseArea: mouseArea
     //property int addr: "#c0a8de79"
-    property var addr: [192, 168, 222, 121]
+    property var addr: [192,168,222,121]
     Rectangle {
         id: rectangle
         x: 0

@@ -1,44 +1,57 @@
 #include "modelmanager.h"
-#include "model/DeviceIpModel.h"
-#include "model/DeviceGeneralModel.h"
-#include "model/devicerestorefactorymodel.h"
-#include "model/languagemodel.h"
-#include "model/devicefirwareversionmodel.h"
-#include "model/devicedetailmodel.h"
-#include "model/mvrenablemodel.h"
-#include "model/devicegenlockmodel.h"
-#include "model/presetsmodel.h"
-
+#include <QtDebug>
+#include <QEventLoop>
+#include <QApplication>
+#include "protocol_v4_cli/protocolv4manager.h"
 ModelManager::ModelManager(QObject *parent) : QObject(parent)
 {
 
 }
 
+
+
+
+void ModelManager::_initModelFromFile()
+{
+    QList< QString> classNames = modelInfos.keys();
+    for(int i = 0 ; i < classNames.length();i++)
+    {
+        if(modelInfos[classNames[i]]->isFromFile() && modelInfos[classNames[i]]->init() != 0)
+            qDebug("init model %s failured.",classNames[i].toUtf8().data());
+    }
+    qInfo("ModelManager::init completed.");
+}
+void ModelManager::_initModelFromMiddleWare()
+{
+    QList< QString> classNames = modelInfos.keys();
+    for(int i = 0 ; i < classNames.length();i++)
+    {
+        if(modelInfos[classNames[i]]->isFromMiddleWare() && modelInfos[classNames[i]]->init() != 0)
+            qDebug("init model %s failured.",classNames[i].toUtf8().data());
+    }
+    qInfo("ModelManager::init completed.");
+}
 void ModelManager::init()
 {
-    registerModelClass<DeviceIpModel>();
-    registerModelClass<DeviceGeneralModel>();
-    registerModelClass<LanguageModel>();
-    registerModelClass<DeviceRestoreFactoryModel>();
-    registerModelClass<DeviceFirwareVersionModel>();
-    registerModelClass<DeviceDetailModel>();
-    registerModelClass<MVREnableModel>();
-    registerModelClass<DeviceGenlockModel>();
-    registerModelClass<PresetsModel>();
-}
-ModelManager* ModelManager::getInstance()
-    {
-//        static  ModelManager* __instance = NULL;
-//        if(__instance == NULL)
-//            __instance = new ModelManager;
-    static  ModelManager __instance;
-        return &__instance;
-    }
+    moveToThread(&_workThread);
+    connect(this,SIGNAL(requestInit()),this,SLOT(_initModelFromFile()));
+    connect(ProtocolV4Manager::getInstance(),SIGNAL(connected()),this,SLOT(_initModelFromMiddleWare()));
 
-template<typename T>
-void ModelManager::registerModelClass()
+    ProtocolV4Manager::getInstance()->init(&_workThread);
+    _workThread.start();
+    QTimer::singleShot(0,this,SLOT(_initModelFromFile()));
+}
+
+void ModelManager::loadModel( )
 {
-    modelInfos[T::getInstance()->metaObject()->className()] = T::getInstance();
+    if(ProtocolV4Manager::getInstance()->isConnected())
+        dynamic_cast<BaseModel*>( sender())->load();
+}
+
+void ModelManager::registerModelClass(const QString& className,BaseModel* model)
+{
+    modelInfos[className] = model;
+    connect(model,SIGNAL(requestLoad()),this,SLOT(loadModel()));
 }
 
 QObject* ModelManager::getModel(const QString& modelName)
@@ -48,7 +61,5 @@ QObject* ModelManager::getModel(const QString& modelName)
         qWarning("%s not register in ModelManager.",modelName.toUtf8().data());
         return nullptr;
     }
-    //qDebug("get getInstance of model : %s(%p).",modelName.toUtf8().data(),modelInfos[modelName]);
-
     return modelInfos[modelName];
 }

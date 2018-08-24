@@ -1,5 +1,6 @@
 #include "devicerestorefactorymodel.h"
-
+#include "src/modelmanager.h"
+RIGSTER_MODEL(DeviceRestoreFactoryModel)
 DeviceRestoreFactoryModel::DeviceRestoreFactoryModel()
 {
     setMonitorInterval(0);

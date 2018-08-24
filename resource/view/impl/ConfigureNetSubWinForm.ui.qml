@@ -23,7 +23,7 @@ Item {
         y: 30
         height: 23
         color: "#8ea9c0"
-        text: qsTr("MAC :")
+        text: "MAC :"
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignLeft
         font.pixelSize: 28
@@ -35,7 +35,7 @@ Item {
         y: 107
         height: 23
         color: "#8ea9c0"
-        text: qsTr("IP获取方式 :")
+        text: "IP获取方式 :"
         horizontalAlignment: Text.AlignLeft
         font.pixelSize: 28
         verticalAlignment: Text.AlignVCenter
@@ -48,7 +48,7 @@ Item {
         width: 80
         height: 23
         color: "#8ea9c0"
-        text: qsTr("IP地址 :")
+        text: "IP地址 :"
         horizontalAlignment: Text.AlignLeft
         font.pixelSize: 28
         verticalAlignment: Text.AlignVCenter
@@ -60,7 +60,7 @@ Item {
         y: 297
         height: 23
         color: "#8ea9c0"
-        text: qsTr("子网掩码 :")
+        text: "子网掩码 :"
         horizontalAlignment: Text.AlignLeft
         font.pixelSize: 28
         verticalAlignment: Text.AlignVCenter
@@ -72,7 +72,7 @@ Item {
         y: 394
         height: 23
         color: "#8ea9c0"
-        text: qsTr("网关 :")
+        text: "网关 :"
         horizontalAlignment: Text.AlignLeft
         font.pixelSize: 28
         verticalAlignment: Text.AlignVCenter
@@ -84,7 +84,7 @@ Item {
         y: 30
         height: 23
         color: "#8ea9c0"
-        text: qsTr("AA:BB:CC:DD:EE:FF")
+        text: "AA:BB:CC:DD:EE:FF"
         horizontalAlignment: Text.AlignLeft
         font.pixelSize: 28
         verticalAlignment: Text.AlignVCenter

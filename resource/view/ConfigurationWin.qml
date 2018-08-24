@@ -3,7 +3,7 @@ import "../"
 import "impl"
 ConfigurationWinForm {
 
-    returnButton.text:TranslatorHelper.translator.tr(qsTr("设置"));
+    winName:TranslatorHelper.translator.tr(qsTr("设置"));
     btnNet.text: TranslatorHelper.translator.tr(qsTr("网络通讯"));
     btnFw.text: TranslatorHelper.translator.tr(qsTr("固件版本"));
     btnAdvance.text: TranslatorHelper.translator.tr(qsTr("高级设置"));

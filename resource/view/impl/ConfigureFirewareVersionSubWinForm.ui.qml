@@ -4,6 +4,7 @@ import "../../controls"
 Item {
     width: 1059
     height: 542
+    property int versionX : 200
     property bool isUi: true
     property alias listView: listView
     property alias btnOutCard: btnOutCard
@@ -76,12 +77,12 @@ Item {
         contentHeight: 80
         model: ListModel {
             ListElement {
-                devName: "主控卡"
+                devName: qsTr("主控卡")
                 version: "1.0.0.0"
             }
 
             ListElement {
-                devName: "背板"
+                devName: qsTr("背板")
                 version: "1.0.0.0"
             }
         }
@@ -90,18 +91,19 @@ Item {
             height: text1.height
             color: "#00000000"
             Text {
-                text: isUi ? model.devName + ":" : model.modelData.devName + ":"
+                text: "devName" in  model ? model.devName + ":" : model.modelData.devName + ":"
                 font.pointSize: 28
                 color: "#8ea0c0"
             }
 
             Text {
                 id: text1
-                x: 200
-                text: isUi ? model.version : model.modelData.version
+                x: versionX
+                text: "version" in  model ? model.version : model.modelData.version
                 font.pointSize: 28
                 color: "#00c8f8"
             }
         }
     }
 }
+

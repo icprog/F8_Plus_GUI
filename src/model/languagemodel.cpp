@@ -1,11 +1,12 @@
 #include "languagemodel.h"
 #include "../translatorhelper.h"
+#include "src/modelmanager.h"
+RIGSTER_MODEL(LanguageModel)
 LanguageModel::LanguageModel()
 {
     connect(this,SIGNAL(dataChanged()),this,SIGNAL(langChanged()));
-#ifdef DEBUG_WITHOUT_MIDDLEWARE
     setFileName("Language.json");
-#endif
+    setClassName("LanguageModel");
 }
 QString LanguageModel::lang()
 {
