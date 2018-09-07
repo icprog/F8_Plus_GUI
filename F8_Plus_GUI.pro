@@ -1,6 +1,11 @@
-QT += qml quick widgets
+QT += qml quick quickwidgets
 
 CONFIG += c++11
+CONFIG += link_pkgconfig
+PKGCONFIG += gstreamer-1.0
+LIBS += -lgstvideo-1.0
+DEFINES += QT_NO_OPENGL_ES_3
+DEFINES += QT_NO_OPENGL_ES_3_1
 
 TEMP_VAR = $$(ARCH)
 if(contains(TEMP_VAR,arm)){
@@ -29,7 +34,8 @@ SOURCES += \
     src/model/presetsmodel.cpp \
     src/debug/debughandler.cpp \
     src/protocol_v4_cli/protocolv4manager.cpp \
-    src/protocol_v4_cli/protocolv4pkg.cpp
+    src/protocol_v4_cli/protocolv4pkg.cpp \
+    src/player.cpp
 
 
 RESOURCES += \
@@ -66,7 +72,8 @@ HEADERS += \
     src/protocol_v4_cli/prot_cfg.h \
     src/protocol_v4_cli/protocol_v4_common.h \
     src/protocol_v4_cli/protocolv4manager.h \
-    src/protocol_v4_cli/protocolv4pkg.h
+    src/protocol_v4_cli/protocolv4pkg.h \
+    src/player.h
 
 
 # 设置生成的语言库存放的路径，我这边是放在resources文件夹下面，生成中文和英文两种，不要认为是直接翻译好的，这两个文件刚生成的时内容是一样的，需要自己去翻译，这个后面会说。

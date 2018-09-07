@@ -3,6 +3,8 @@ import "../"
 import "impl"
 
 LanguageWinForm {
+    name:"LanguageWin"
+    visible: false
     winName: TranslatorHelper.translator.tr(qsTr("语言"))  //语言界面返回按钮语言绑定
     btnZh.toggle: ModelSet.getModel("LanguageModel").json.lang === "zh" //中英文切换按钮绑定
     btnEn.toggle: ModelSet.getModel("LanguageModel").json.lang === "en"

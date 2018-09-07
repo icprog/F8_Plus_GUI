@@ -3,6 +3,8 @@ import "impl"
 import "../"
 import "../controls"
 UnLockWinForm {
+    visible: false
+        name : "UnLockWin"
     CustomizingTimer{
         id:timer
     }

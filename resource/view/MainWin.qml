@@ -3,8 +3,8 @@ import "../"
 import "../controls"
 import "impl"
 MainWinForm {
-
-
+    name : "MainWin"
+    visible: false
 
     btnDevice.text:  TranslatorHelper.translator.tr(qsTr("设备")) //设备按钮语言绑定
     btnMVR.text:  TranslatorHelper.translator.tr(qsTr("预监"))    //预监按钮语言绑定

@@ -4,10 +4,10 @@ import "./"
 Item {
     property var mainStackView: null    //界面栈，压入到栈顶的界面为当前界面
     property var floatingContainer : null
-
+    property var viewStack: []
     function lockScreen()
     {
-        while(mainStackView.depth > 1)
+        while(viewStack.length > 1)
             hideWin()
     }
     function getFloatingWin(floatingWinName)
@@ -55,14 +55,26 @@ Item {
         }
 
     }
-
-    function showWin(winName)   //常规界面跳转
+    function initWin(winName)   //常规界面跳转
     {
-        gc()
+        //gc()
         var win = _getWin(winName)
         if(win.preShow )
             win.preShow()
-        mainStackView.push(win)
+        viewStack.push(win);
+        win.visible = true
+
+    }
+    function showWin(winName)   //常规界面跳转
+    {
+        //gc()
+        var win = _getWin(winName)
+        if(win.preShow )
+            win.preShow()
+        viewStack.push(win);
+        win.visible = true
+        viewStack[viewStack.length-2].visible = false
+        //mainStackView.push(win)
     }
 
     function hideWin(winName)      //常规界面隐藏
@@ -73,15 +85,21 @@ Item {
         else
             win = winName
         hideFloating()
-        if(mainStackView.currentItem.preShow )
-            mainStackView.currentItem.preShow()
-        mainStackView.pop()
+
+        viewStack[viewStack.length-2].visible = true
+        viewStack[viewStack.length-1].visible = false
+        viewStack.pop()
     }
 
     function addFloatWin(floatingWin,name)
     {
         var map = _getMap()
         map[name] = floatingWin
+    }
+    function addWin(win,name)
+    {
+        var map = _getMap()
+        map[name] = win
     }
 
 
@@ -97,7 +115,8 @@ Item {
         var map = _getMap()
         if(!map.hasOwnProperty(winName))
         {
-            map[winName] = Qt.createComponent("view/"+winName+".qml").createObject();
+            return null
+            //map[winName] = Qt.createComponent("view/"+winName+".qml").createObject();
         }
         return map[winName]
     }

@@ -3,6 +3,8 @@ import "impl"
 import "../"
 import "../controls"
 SenceWinForm {
+    visible: false
+        name:"SenceWin"
     returnButton.text: TranslatorHelper.translator.tr(qsTr("场景"))
     text1.text: TranslatorHelper.translator.tr(qsTr("Load模式"))
     text4.text:senceSubListWin.currentPreset.name

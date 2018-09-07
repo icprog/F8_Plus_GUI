@@ -5,25 +5,39 @@ import QtQuick.Window 2.0
 import "./"
 import "view"
 import "controls/floating/"
-ApplicationWindow {
+Item {
     visible: true
     width: 1280
     height: 800
-    Component.onCompleted: {
-            if(Screen.width === 1280 && Screen.height===800)
-                visibility= "FullScreen"
-            //Global.app = this
-        }
+//    Component.onCompleted: {
+//            if(Screen.width === 1280 && Screen.height===800)
+//                visibility= "FullScreen"
+//        }
 
-    StackView {
-        id: mainStackView
+//    StackView {
+//        id: mainStackView
+//        anchors.fill: parent
+//        //initialItem: MVRWin{}
+
+//        initialItem: MainWin{}
+//        Component.onCompleted: {
+//            Locator.mainStackView = this
+//        }
+//    }
+    Rectangle{
         anchors.fill: parent
-       // initialItem: MainWin{}
 
-        initialItem: LockWin{}
-        Component.onCompleted: {
-            Locator.mainStackView = this
+        LockWin{
+            Component.onCompleted: Locator.initWin("LockWin")
         }
+        UnLockWin{}
+        MainWin{}
+        MVRWin{}
+        DeviceInfoWin{}
+        SenceWin{}
+        LanguageWin{}
+        AboutWin{}
+        ConfigurationWin{}
     }
     Rectangle{
         anchors.fill: parent
@@ -34,9 +48,10 @@ ApplicationWindow {
         CustomizingComboBoxPanel{}
         NetAddrPanel{}
         NumberInputPanel{}
-        SubCardPanel{ }
+        SubCardPanel{}
         ShutdownQueryPanel{}
     }
+
     //ConfigurationWin{}
 }
 

@@ -47,7 +47,8 @@ ConfigureAdvanceWinForm {
 
      customizingComboBox.models: [TranslatorHelper.translator.tr(qsTr("关闭")),TranslatorHelper.translator.tr(qsTr("开启"))]
      customizingComboBox.name: TranslatorHelper.translator.tr(qsTr("同步状态"));
-     customizingComboBox.currentIndex:ModelSet.getModel("DeviceGenlockModel").json.enable
+     customizingComboBox.currentIndex:ModelSet.getModel("DeviceGenlockModel").json.enable ? ModelSet.getModel("DeviceGenlockModel").json.enable : false
+
      hollowButton1.onClicked: {
          var _json =  ModelSet.getModel("DeviceGenlockModel").json
          _json.enable = customizingComboBox.currentIndex
@@ -57,7 +58,7 @@ ConfigureAdvanceWinForm {
 
      customizingComboBox2.models: [TranslatorHelper.translator.tr(qsTr("保存IP")),TranslatorHelper.translator.tr(qsTr("保存IP和EDID")),TranslatorHelper.translator.tr(qsTr("全部恢复"))]
      customizingComboBox2.name: TranslatorHelper.translator.tr(qsTr("恢复出厂设置"));
-     customizingComboBox2.currentIndex:deviceRestoreFactoryModel.restoreType === 2 || deviceRestoreFactoryModel.restoreType === 3 ? deviceRestoreFactoryModel.restoreType-1:deviceRestoreFactoryModel.restoreType
+     customizingComboBox2.currentIndex:deviceRestoreFactoryModel.restoreType ? (deviceRestoreFactoryModel.restoreType === 2 || deviceRestoreFactoryModel.restoreType === 3 ? deviceRestoreFactoryModel.restoreType-1:deviceRestoreFactoryModel.restoreType ) : 0
 
 
      hollowButton.onClicked: {
