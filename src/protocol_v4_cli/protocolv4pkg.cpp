@@ -9,6 +9,7 @@ void ProtocolV4Pkg::load(const QByteArray& buff)
     int dataLen = *(quint16*)(buff.data()+16) - 14;
     QByteArray jsonStr(buff.data()+32,dataLen);
     json =  QJsonDocument::fromJson(jsonStr).array()[0].toObject();
+        Ack = buff[2];
 }
 
 
@@ -44,7 +45,9 @@ QByteArray ProtocolV4Pkg::getBuff()
     QByteArray jsonStr;
     if(!json.isEmpty())
     {
-        jsonStr =QJsonDocument (json).toJson();
+        QJsonArray array;
+        array.append(json);
+        jsonStr =QJsonDocument ( array).toJson();
     }
 
     QByteArray buff(jsonStr.length()+34,0);
@@ -56,7 +59,10 @@ QByteArray ProtocolV4Pkg::getBuff()
     *(quint16*)(buff.data()+16) = 14+jsonStr.length();
     buff[20] = ApolloCode;
      *(quint16*)(buff.data()+25) =Arg1;
-    memcpy(buff.data()+27,Arg2,4);
+    buff[27] = Arg2[3];
+    buff[28] = Arg2[2];
+    buff[29] = Arg2[1];
+    buff[30] = Arg2[0];
     memcpy(buff.data()+32,jsonStr.data(),jsonStr.length());
     return buff;
 }
